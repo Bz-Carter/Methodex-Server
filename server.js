@@ -9,3 +9,5 @@ app.listen(8000, () => {
 app.get("/", function(request, response) {
     response.send("Hello Node.Js! :)");
 });
+
+require("./articles.js")(app);
