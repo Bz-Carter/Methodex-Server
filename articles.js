@@ -8,8 +8,8 @@ module.exports = function(app, sql) {
     });
 
     app.get("/articles/:key", function(request, response) {
-        response.send(
-            ARTICLES.filter(articles => articles.key === request.params.key)[0]
-        );
+        sql.getArticleByKey({ key: request.params.key }, function(article) {
+            response.send(article);
+        });
     });
 };
