@@ -6,7 +6,8 @@ module.exports = function(app) {
     });
 
     app.get("/articles/:key", function(request, response) {
-        response.send(ARTICLES.filter(articles => articles.key === request.params.key)[0]
+        response.send(
+            ARTICLES.filter(articles => articles.key === request.params.key)[0]
         );
     });
 };
