@@ -1,4 +1,5 @@
 const Sequelize = require("sequelize");
+const articles = require("./articles");
 
 const sequelize = new Sequelize("ngmethodex", "root", "nosib1235xp",
     {
@@ -80,4 +81,9 @@ init = function () {
     });
 };
 
+getArticles = function(callback) {
+    Article.findAll({ order: sequelize.literal("date DESC")}).then(articles => callback(articles));
+}
+
 module.exports.init = init;
+module.exports.getArticles = getArticles;
